@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
+  before_action :load_tags, on: [:index, :tag_cloud]
+  
   def new
     @note = Note.new
   end
@@ -44,10 +46,18 @@ class NotesController < ApplicationController
     flash.notice = "Your note has just been trashed!"
     redirect_to notes_path
   end
+  
+  # def tag_cloud
+  # end
 
   private
-    def note_params
-      params.require(:note).permit(:title, :content)
-    end
+
+  def note_params
+    params.require(:note).permit(:title, :content, :tag_list)
+  end
+
+  def load_tags
+    @tags = Note.tag_counts_on(:tags)
+  end
 
 end

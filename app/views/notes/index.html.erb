@@ -1,5 +1,14 @@
 <h1 class="center">Welcome to Noteful</h1>
-<p class="center">Take notes online and access them from anywhere!</p>
+<p class="center">Take notes and create todos online and access them from anywhere!</p>
+
+<h2>Tag Cloud</h2>
+<%= content_tag :div, id: 'tag_cloud' do %>
+  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+    <%= content_tag :span, tag.name, :class => css_class %>
+  <% end %>
+<% end %>
+
+<hr/>
 
 <div class='pull-right'>
   <%= link_to "Add a note", new_note_path %>

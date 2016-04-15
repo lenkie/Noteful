@@ -1,8 +1,9 @@
 <h1 class="center">Welcome to Noteful</h1>
-<p class="center">Take notes online and access them from anywhere!</p>
+<p class="center">Take notes and create todos online and access them from anywhere!</p>
 
 <% if current_user %>
-  Check out <%= link_to "all your notes", notes_path %>
+  <p>Check out <%= link_to "all your notes", notes_path %><p>
+  <p>Check out <%= link_to "all your todos", todos_path %><p>
 <% else %>
   <%= link_to "Sign in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to start creating notes
 <% end %>

@@ -1,0 +1,7 @@
+<div>
+  
+  <h1><%= @todo.body %></h1>
+  <p><%= simple_format @todo.body %></p>
+
+   <p><%= link_to 'Back', todos_path %> | <%= link_to 'Edit', edit_todo_path(@todo) %></p>
+</div>
